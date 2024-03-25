@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     soup = BeautifulSoup(ecological_pyramid, "lxml")
 
+    # Searching with find() method
+
     # finding the producers within the <ul> tag using the find() method
     # producer_entries = soup.find("ul")
 
@@ -27,6 +29,15 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
 
     # secondary_consumer = soup.find(is_secondary_consumers)
 
+    # Searching with find_all() method
+
+    # finding all tertiary consumers
+    # all_tertiaryconsumers = soup.find_all(class_="tertiaryconsumerlist")
+
+    # iterate through this list to display all tertiary consumer names
+    # for tertiaryconsumer in all_tertiaryconsumers:
+    #     print(tertiaryconsumer.div.string)
+
     # prints the text stored in the <div> element within the <li> element
     # print(producer_entries.li.div.string)
 
@@ -44,3 +55,6 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
 
     # prints the first secondary consumer
     # print(secondary_consumer.li.div.string)
+
+    # prints the type of the variable
+    # print(type(all_tertiaryconsumers))
