@@ -30,6 +30,7 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     # secondary_consumer = soup.find(is_secondary_consumers)
 
     # Searching with find_all() method
+    # find_all() method has extra parameter, limit
 
     # finding all tertiary consumers
     # all_tertiaryconsumers = soup.find_all(class_="tertiaryconsumerlist")
