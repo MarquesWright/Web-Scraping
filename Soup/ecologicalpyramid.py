@@ -45,9 +45,23 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     # all_texts = soup.find_all(text=True)
 
     # searching for a list of strings
-    all_texts_in_list = soup.find_all(text=["plants", "algae"])
+    # all_texts_in_list = soup.find_all(text=["plants", "algae"])
 
-    # PRINT METHODS FOR DISPLAYING EXAMPLES
+    # searching for tags, attribute values of tag, custom attributes and the CSS class
+    # finding all the div and li tags
+    # div_li_tags = soup.find_all(["div", "li"])
+
+    # searching for tags with producerlist and primaryconsumerlist classes
+    # all_css_class = soup.find_all(class_=["producerlist", "primaryconsumerlist"])
+
+    # SEARCHING FOR THE PARENT TAGS
+
+    # searching for the immediate parent tag associated with primaryconsumer
+    primaryconsumers = soup.find_all(class_="primaryconsumerlist")
+    primaryconsumer = primaryconsumers[0]
+    parent_ul = primaryconsumer.find_parents("ul")
+
+    # PRINT METHODS FOR find() EXAMPLES
 
     # prints the text stored in the <div> element within the <li> element
     # print(producer_entries.li.div.string)
@@ -67,6 +81,8 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     # prints the first secondary consumer
     # print(secondary_consumer.li.div.string)
 
+    # PRINT METHODS FOR find_all() EXAMPLES
+
     # prints the type of the variable
     # print(type(all_tertiaryconsumers))
 
@@ -77,4 +93,15 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     # print(all_texts)
 
     # prints strings that are defined in a list
-    print(all_texts_in_list)
+    # print(all_texts_in_list)
+
+    # prints all div and li tags
+    # print(div_li_tags)
+
+    # prints tags with "producerlist" and "primaryconsumerlist" classes
+    # print(all_css_class)
+
+    # PRINT METHODS FOR find_parent() & find_parents() EXAMPLES
+
+    # prints the immediate parent tag associated with "primaryconsumer"
+    print(parent_ul)
