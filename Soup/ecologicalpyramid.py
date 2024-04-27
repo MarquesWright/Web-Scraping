@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     soup = BeautifulSoup(ecological_pyramid, "lxml")
 
-    # SEARCHING USING find() METHOD
+    # #################################SEARCHING USING find() METHOD##################################
 
     # finding the producers within the <ul> tag using the find() method
     # producer_entries = soup.find("ul")
@@ -29,7 +29,7 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
 
     # secondary_consumer = soup.find(is_secondary_consumers)
 
-    # SEARCHING WITH find_all() METHOD
+    # ###############################SEARCHING WITH find_all() METHOD#################################
     # find_all() method has extra parameter, limit, which limits the number of results you get
 
     # finding all tertiary consumers
@@ -54,14 +54,40 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     # searching for tags with producerlist and primaryconsumerlist classes
     # all_css_class = soup.find_all(class_=["producerlist", "primaryconsumerlist"])
 
-    # SEARCHING FOR THE PARENT TAGS
+    # #################################SEARCHING FOR THE PARENT TAGS###############################
 
     # searching for the immediate parent tag associated with primaryconsumer
-    primaryconsumers = soup.find_all(class_="primaryconsumerlist")
-    primaryconsumer = primaryconsumers[0]
-    parent_ul = primaryconsumer.find_parents("ul")
+    # primaryconsumers = soup.find_all(class_="primaryconsumerlist")
+    # primaryconsumer = primaryconsumers[0]
+    # parent_ul = primaryconsumer.find_parents("ul")
 
-    # PRINT METHODS FOR find() EXAMPLES
+    # searching for the immediate parent of the <p> tag
+    # parent_p = primaryconsumer.find_all("p")
+
+    # alternative way for finding the immediate parent tag
+    # immediateprimary_consumer_parent = primaryconsumer.find_parent()
+
+    # ###################################SEARCHING FOR SIBLINGS####################################
+
+    # searching for the siblings of the producers
+    # producers = soup.find(id='producers')
+    # next_siblings = producers.find_next_siblings()
+
+    # #####################################SEARCHING FOR NEXT######################################
+
+    # search for all the <li> tags that come after the first <div> tag
+    # first_div = soup.div
+    # all_li_tags = first_div.find_all_next("li")
+
+    # ##################################SEARCH FOR PREVIOUS########################################
+
+    # search for all the <li> tags that come before "secondaryconsumers"
+    # secondary_consumers = soup.find(class_="secondaryconsumerlist")
+    # previous_li_tags = secondary_consumers.find_all_previous("li")
+
+    ###############################################################################################
+
+    # #############################PRINT METHODS FOR find() EXAMPLES###############################
 
     # prints the text stored in the <div> element within the <li> element
     # print(producer_entries.li.div.string)
@@ -81,7 +107,7 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     # prints the first secondary consumer
     # print(secondary_consumer.li.div.string)
 
-    # PRINT METHODS FOR find_all() EXAMPLES
+    # #########################PRINT METHODS FOR find_all() EXAMPLES###############################
 
     # prints the type of the variable
     # print(type(all_tertiaryconsumers))
@@ -101,7 +127,24 @@ with open("ecologicalpyramid.html", "r") as ecological_pyramid:
     # prints tags with "producerlist" and "primaryconsumerlist" classes
     # print(all_css_class)
 
-    # PRINT METHODS FOR find_parent() & find_parents() EXAMPLES
+    # ##################PRINT METHODS FOR find_parent() & find_parents() EXAMPLES##################
 
     # prints the immediate parent tag associated with "primaryconsumer"
-    print(parent_ul)
+    # print(parent_ul)
+
+    # prints the immediate parent of the <p> tag
+    # print(parent_p)
+
+    # prints the immediate parent tag for a particular tag
+    # print(immediateprimary_consumer_parent)
+
+    # ############PRINT METHODS FOR find_next_siblings() & find_next_sibling() EXAMPLES############
+
+    # prints the siblings of the producers
+    # print(next_siblings)
+
+    # ################PRINT METHODS FOR find_all_next() and find_next() EXAMPLES###################
+    # print(all_li_tags)
+
+    # #############PRINT METHODS FOR find_all_previous() and find_previous() EXAMPLES##############
+    # print(previous_li_tags)
